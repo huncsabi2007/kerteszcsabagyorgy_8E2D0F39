@@ -64,5 +64,7 @@ A weboldal **három fő oldalt** tartalmaz:
 | Függvény | Több JS-függvény (pl. `calculateScore`) |
 | Programozási tétel | Számlálás (touchdown-ok) |
 
+## Források
+Chatgpt, NFL, Wiki
 ---
 
