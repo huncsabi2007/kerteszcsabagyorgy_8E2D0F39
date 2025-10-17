@@ -42,11 +42,7 @@ A weboldal **három fő oldalt** tartalmaz:
    - Tömb segítségével felsorolja a híres csapatokat  
    - Használ *ciklust* és *DOM-manipulációt*  
 
-3. **`quizCheck()`**  
-   - Ellenőrzi, helyes-e a felhasználó válasza a kvízben  
-   - Használ *logikai műveleteket* és *feltételeket*  
-
-4. **`countTouchdowns(scores)`**  
+3. **`countTouchdowns(scores)`**  
    - Számlálja, hány touchdown-t szerzett a csapat  
    - Ez a *számlálás programozási tétel* megvalósítása  
 
