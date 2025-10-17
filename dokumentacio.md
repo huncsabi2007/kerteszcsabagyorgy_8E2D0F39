@@ -53,8 +53,7 @@ A weboldal **három fő oldalt** tartalmaz:
 | Követelmény | Megvalósítás |
 |--------------|--------------|
 | Aritmetikai művelet | Pontszám-számítás |
-| Logikai művelet | Kvíz ellenőrzése |
-| Elágazás | Győztes megállapítása |
+| Logikai művelet | 2 csapat ellenörzés |
 | Tömb | Csapatok és pontok listája |
 | Ciklus | Csapatlista bejárása |
 | Függvény | Több JS-függvény (pl. `calculateScore`) |
