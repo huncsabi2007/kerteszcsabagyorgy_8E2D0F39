@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amerikai foci</title>
+<style>
+body{font-family:system-ui,Arial;margin:0;background:#2ecc71;color:#111;}
+header{background:#004d00;color:white;padding:1rem;text-align:center;}
+nav{display:flex;justify-content:center;gap:1rem;background:#006600;padding:.5rem;}
+nav a{color:white;text-decoration:none;font-weight:bold;}
+main{max-width:900px;margin:0 auto;padding:1rem;}
+section{display:none;background:white;padding:1rem;border-radius:8px;margin-top:1rem;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+section.active{display:block;}
+table{width:100%;border-collapse:collapse;margin-top:1rem;}
+th,td{border:1px solid #ddd;padding:.5rem;text-align:left;}
+th{background:#eee;}
+select,input,button{padding:.5rem;margin:.25rem 0}
+button{cursor:pointer;border-radius:6px;border:1px solid #ccc;background:white}
+h3{margin-top:1.5rem;}
+</style>
+</head>
+<body>
+<header>
+<h1>Amerikai foci</h1>
+</header>
+<nav>
+<a href="#" onclick="showSection('home')">Kezdőlap</a>
+<a href="#" onclick="showSection('positions')">Pozíciók</a>
+<a href="#" onclick="showSection('teams')">Csapatok</a>
+<a href="#" onclick="showSection('game')">Interaktív</a>
+</nav>
+<main>
+<section id="home" class="active">
+<h2>Bemutatás</h2>
+<p>Az amerikai foci az Egyesült Államok egyik legnépszerűbb sportja, amelyben két 11 fős csapat versenyez egymás ellen a pályán. A cél a labda célterületre (end zone) juttatása, amivel pontokat lehet szerezni. A sportág világszerte ismert, és az NFL (National Football League) a legmagasabb szintű profi liga.</p>
+<p><strong>Jelenlegi címvédő:</strong> Philadelphia Eagles (Super Bowl LVIII, 2025)</p>
+<p><strong>Kedvenc csapatom:</strong> Baltimore Ravens</p>
+<h3>Alapszabályok röviden:</h3>
+<ul>
+<li><strong>Downs rendszer:</strong> A támadó csapatnak 4 próbálkozása (downja) van arra, hogy legalább 10 yardot előrehaladjon. Ha sikerül, újabb 4 kísérletet kap. Ha nem, a labda átkerül az ellenfélhez.</li>
+<li><strong>Pontok szerzése:</strong> Touchdown (6 pont), extra pont rúgás (1 pont), kétpontos kísérlet (2 pont), mezőnygól (3 pont), safety (2 pont).</li>
+<li><strong>Flag-ek:</strong> A szabálytalanságokat sárga zászló jelzi, amit a játékvezetők dobnak. A büntetések yardvesztéssel vagy megismételt próbálkozással járhatnak.</li>
+<li><strong>Overtime:</strong> Ha a rendes játékidő végén döntetlen az állás, hosszabbítás következik. Az első csapat, amely pontot szerez, megnyerheti a mérkőzést.</li>
+<li><strong>Idő és negyedek:</strong> Egy mérkőzés négy, egyenként 15 perces negyedből áll. A játék gyakran megáll az időmérésben, például szabálytalanság, incomplete pass vagy kísérletváltás esetén.</li>
+</ul>
+</section>
+
+<section id="positions">
+<h2>Játékospozíciók és feladatuk</h2>
+<table>
+<thead><tr><th>Pozíció</th><th>Feladat röviden</th><th>Legenda (példa játékos)</th></tr></thead>
+<tbody>
+<tr><td>Quarterback (QB)</td><td>A csapat irányítója, passzokat dob, vezeti a támadást.</td><td>Tom Brady</td></tr>
+<tr><td>Running Back (RB)</td><td>Labdát hordja, fut a yardokért, segíti a támadást.</td><td>Derrick Henry</td></tr>
+<tr><td>Wide Receiver (WR)</td><td>Passzokat kap, gyors játékos, célpont a touchdownokhoz.</td><td>Davante Adams</td></tr>
+<tr><td>Tight End (TE)</td><td>Passzok elkapása és blokkolás, vegyes támadó feladatok.</td><td>Robert Gronkowski</td></tr>
+<tr><td>Offensive Lineman (OL)</td><td>Védik a QB-t és blokkolják a futókat a yardokért.</td><td>Quenton Nelson</td></tr>
+<tr><td>Defensive Lineman (DL)</td><td>Nyomást gyakorol az ellenfél támadósorára, sack-ek.</td><td>Aaron Donald</td></tr>
+<tr><td>Linebacker (LB)</td><td>Védelem középső része, futás és passz ellen egyaránt.</td><td>Bobby Wagner</td></tr>
+<tr><td>Cornerback (CB)</td><td>Passzvédelem, az ellenfél WR-jeit figyeli.</td><td>Jalen Ramsey</td></tr>
+<tr><td>Safety (S)</td><td>Védelem hátsó része, passzok blokkolása és futások megállítása.</td><td>Minkah Fitzpatrick</td></tr>
+<tr><td>Kicker (K)</td><td>Rúgásokért felel, mezőnygólok és extra pontok.</td><td>Justin Tucker</td></tr>
+<tr><td>Punter (P)</td><td>Labdát rúgja el, ha a csapat nem tud első down-t szerezni.</td><td>Johnny Hekker</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="teams">
+<h2>Csapatok konferenciák szerint</h2>
+<div id="teamsContainer"></div>
+</section>
+
+<section id="game">
+<h2>Interaktív 1v1</h2>
+<p>Írd be a TD-k számát így: <em>1-0</em> (1 TD az első csapat, 0 TD a második csapat).</p>
+<label for="teamSelectA">1. csapat:</label>
+<select id="teamSelectA"></select><br>
+<label for="teamSelectB">2. csapat:</label>
+<select id="teamSelectB"></select><br>
+<label for="scoreInput">TD formátum:</label>
+<input id="scoreInput" placeholder="1-0"><br><br>
+<button id="calcBtn">Eredmény</button>
+<p id="scoreOutput"></p>
+</section>
+
+<script>
+function showSection(id){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+const teams=[
+{name:"Baltimore Ravens",city:"Baltimore",state:"Maryland",conference:"AFC North"},
+{name:"Cincinnati Bengals",city:"Cincinnati",state:"Ohio",conference:"AFC North"},
+{name:"Cleveland Browns",city:"Cleveland",state:"Ohio",conference:"AFC North"},
+{name:"Pittsburgh Steelers",city:"Pittsburgh",state:"Pennsylvania",conference:"AFC North"},
+{name:"Buffalo Bills",city:"Buffalo",state:"New York",conference:"AFC East"},
+{name:"Miami Dolphins",city:"Miami",state:"Florida",conference:"AFC East"},
+{name:"New England Patriots",city:"Foxborough",state:"Massachusetts",conference:"AFC East"},
+{name:"New York Jets",city:"East Rutherford",state:"New Jersey",conference:"AFC East"},
+{name:"Houston Texans",city:"Houston",state:"Texas",conference:"AFC South"},
+{name:"Indianapolis Colts",city:"Indianapolis",state:"Indiana",conference:"AFC South"},
+{name:"Jacksonville Jaguars",city:"Jacksonville",state:"Florida",conference:"AFC South"},
+{name:"Tennessee Titans",city:"Nashville",state:"Tennessee",conference:"AFC South"},
+{name:"Denver Broncos",city:"Denver",state:"Colorado",conference:"AFC West"},
+{name:"Kansas City Chiefs",city:"Kansas City",state:"Missouri",conference:"AFC West"},
+{name:"Las Vegas Raiders",city:"Las Vegas",state:"Nevada",conference:"AFC West"},
+{name:"Los Angeles Chargers",city:"Los Angeles",state:"California",conference:"AFC West"},
+{name:"Chicago Bears",city:"Chicago",state:"Illinois",conference:"NFC North"},
+{name:"Detroit Lions",city:"Detroit",state:"Michigan",conference:"NFC North"},
+{name:"Green Bay Packers",city:"Green Bay",state:"Wisconsin",conference:"NFC North"},
+{name:"Minnesota Vikings",city:"Minneapolis",state:"Minnesota",conference:"NFC North"},
+{name:"Atlanta Falcons",city:"Atlanta",state:"Georgia",conference:"NFC South"},
+{name:"Carolina Panthers",city:"Charlotte",state:"North Carolina",conference:"NFC South"},
+{name:"New Orleans Saints",city:"New Orleans",state:"Louisiana",conference:"NFC South"},
+{name:"Tampa Bay Buccaneers",city:"Tampa",state:"Florida",conference:"NFC South"},
+{name:"Dallas Cowboys",city:"Arlington",state:"Texas",conference:"NFC East"},
+{name:"New York Giants",city:"East Rutherford",state:"New Jersey",conference:"NFC East"},
+{name:"Philadelphia Eagles",city:"Philadelphia",state:"Pennsylvania",conference:"NFC East"},
+{name:"Washington Commanders",city:"Landover",state:"Maryland",conference:"NFC East"},
+{name:"Arizona Cardinals",city:"Glendale",state:"Arizona",conference:"NFC West"},
+{name:"Los Angeles Rams",city:"Los Angeles",state:"California",conference:"NFC West"},
+{name:"San Francisco 49ers",city:"San Francisco",state:"California",conference:"NFC West"},
+{name:"Seattle Seahawks",city:"Seattle",state:"Washington",conference:"NFC West"}
+];
+
+function groupByConference(){
+const grouped={};
+teams.forEach(t=>{if(!grouped[t.conference])grouped[t.conference]=[];grouped[t.conference].push(t);});
+return grouped;
+}
+
+function listTeams(){
+const container=document.getElementById("teamsContainer"); container.innerHTML=""; 
+const grouped=groupByConference(); 
+for(const conf in grouped){ 
+  const h=document.createElement("h3"); h.textContent=conf; container.appendChild(h); 
+  const table=document.createElement("table"); table.innerHTML="<thead><tr><th>#</th><th>Csapat</th><th>Állam</th><th>Város</th></tr></thead>"; 
+  const body=document.createElement("tbody"); 
+  grouped[conf].forEach((t,i)=>{ const row=document.createElement("tr"); row.innerHTML=`<td>${i+1}</td><td>${t.name}</td><td>${t.state}</td><td>${t.city}</td>`; body.appendChild(row); }); 
+  table.appendChild(body); container.appendChild(table); 
+}
+}
+
+function populateSelects(){
+const selectA=document.getElementById("teamSelectA"); const selectB=document.getElementById("teamSelectB"); 
+teams.forEach(t=>{ const optA=document.createElement("option"); optA.value=t.name; optA.textContent=t.name; const optB=optA.cloneNode(true); selectA.appendChild(optA); selectB.appendChild(optB); });
+}
+
+function calculateScore(teamA,scoreA,teamB,scoreB){
+if(teamA===teamB){return "A két csapat nem lehet ugyanaz!";}
+if(scoreA>scoreB){return `${teamA} nyert! (${scoreA} - ${scoreB})`;}
+else if(scoreB>scoreA){return `${teamB} nyert! (${scoreB} - ${scoreA})`;}
+else{return `Döntetlen! (${scoreA} - ${scoreB})`;}
+}
+
+listTeams(); populateSelects();
+
+document.getElementById("calcBtn").onclick=function(){
+const teamA=document.getElementById("teamSelectA").value;
+const teamB=document.getElementById("teamSelectB").value;
+const scoreStr=document.getElementById("scoreInput").value;
+const parts=scoreStr.split("-");
+if(parts.length!==2){document.getElementById("scoreOutput").textContent="Hibás formátum!"; return;}
+let tdA=parseInt(parts[0].trim()); let tdB=parseInt(parts[1].trim());
+if(isNaN(tdA)||isNaN(tdB)){document.getElementById("scoreOutput").textContent="Hibás formátum!"; return;}
+const scoreA=tdA*6; const scoreB=tdB*6;
+document.getElementById("scoreOutput").textContent=calculateScore(teamA,scoreA,teamB,scoreB);
+}
+</script>
+</body>
+</html>
